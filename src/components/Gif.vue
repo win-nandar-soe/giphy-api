@@ -4,6 +4,7 @@
 <button @click="copyUrl">Copy</button>
 </template>
 
+
 <script>
 export default {
     name: 'GifOne',
