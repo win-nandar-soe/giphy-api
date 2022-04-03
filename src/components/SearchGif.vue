@@ -8,8 +8,8 @@ export default {
     name: 'SearchGif',
     data(){
         return {
-            keyword: ' ',
-            timeout: null,
+            keyword: '',
+            timeout: null
         }
     },
     methods: {
@@ -20,11 +20,10 @@ export default {
            }, 500);
         },
         search() {
-             fetch('http://api.giphy.com/v1/gifs/search?api_key=NEvXSrnZlb34J8ZlpNHFgJSQzHrLoeQH&q=${this.keyword}&limit=9')
+             fetch(`http://api.giphy.com/v1/gifs/search?api_key=NEvXSrnZlb34J8ZlpNHFgJSQzHrLoeQH&q=${this.keyword}&limit=9`)
             .then(response => response.json())
             .then(result => {
-            console.log(result);
-            this.$emit('fetch-gifs', result.data);
+            this.$emit('fetch-gifs', result);
             })
         }
     }

@@ -1,19 +1,17 @@
 <template>
    <div id="gifLIst">
-        <gif v-for="gif in gifs"  :key="gif.id"  :gif="gif" />
+        <gifOne v-for="gif in gifs"  :key="gif.id"  :gif="gif" />
    </div>
    
 </template>
 
 <script>
-import Gif from "@/components/Gif.vue";
+import GifOne from "@/components/GifOne.vue";
 export default {
     name: 'GifList',
-    props: {
-        gifs : Array
-    },
+    props: ['gifs'],
     components: {
-        Gif
+        GifOne
     }
 }
 </script>

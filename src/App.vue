@@ -1,25 +1,27 @@
 <template>
-  <search @fetch-gifs="onFetch" />
+  <searchGif @fetch-gifs="onFetch" />
+
   <gif-list :gifs="gifs"/>
 </template>
 
 <script>
-import Search from "@/components/Search.vue";
+import SearchGif from "@/components/SearchGif.vue";
 import GifList from "@/components/GifList.vue";
 export default {
   name: 'App',
   components: {
-    Search,
+    SearchGif,
     GifList
   },
   data() {
     return {
-      gifs: []
+      gifs: [],
     }
   },
   methods: {
     onFetch(result) {
-      this.gifs= result;
+      console.log(result);
+      this.gifs= result.data;
     }
   }
 }
@@ -31,5 +33,9 @@ export default {
 }
 body {
   padding: 50px;
+}
+#app {
+  width: 800px;
+  margin: 0 auto;
 }
 </style>
